@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Attendance
+{% endblock title %}
+{% block body %}
+<div class="container my-3">
+    <h2>Attendance Entry</h2>
+    <form action="/session_change/{{Entry.sno}}" method="post">
+        <div class="mb-3">
+            <div class="mb-3">
+            <label for="title" class="form-label">Class Description</label>
+            <input type="text" class="form-control" name = 'desc' id="title" value="{{Entry.class_desc}}">
+              </div>
+              <button type="submit" class="btn btn-primary">Change</button>
+        </div>
+      </form>
+  </div>
+  {% endblock body %}

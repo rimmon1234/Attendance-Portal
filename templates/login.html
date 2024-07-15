@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'login.css')}}">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>JPSmartEd Attendance Portal</h3>
+        <h2>Login</h2>
+
+        <form action="#" method="post">
+            
+            <div class="form-group">
+                <input type="text" name = 'name' required>
+                <label for="">Username</label>
+                <i class="fa-solid fa-person"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name = 'passwd' required>
+                <label for="">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <p><input type="checkbox" name="Remember me" value="Remember me">Remember Me</p>
+
+            <input id="btn" type="submit" value="Login">
+
+
+        </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <script>alert('{{msg}}')</script>
+        {% endfor %}
+        
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

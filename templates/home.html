@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<body>
+    <div class="nav">
+        <h1>JPSmartEd Attendance Portal</h1>
+        <a href="/logout"><button>Log out</button></a>
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+        
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <h1 class="welcome">Welcome <span class="auto-type"></span></h1>
+     </div>
+    
+    <div class="Choice"><h1>Choose what would you like to do</h1></div>
+    <div class="Box">
+        <a href="/entry">
+            {% if allEntry|length !=0 %}
+                <div class="box1">View Ongoing Attendance Session</div>
+            {% else %}
+                <div class="box1">Create new Attendance Session</div>
+            {% endif %}
+        </a>
+        <a href="{{url_for('view_session')}}">
+            <div class="box2">View Previous Attendance Session</div>
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="container1">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Teachers</h4>
+                    <ul>
+                        <li><a href="#">Jayanta Das</a></li>
+                        <li><a href="#">Sayonjyoti Dutta</a></li>
+                        <li><a href="#">Tarun Banerjee</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="#">Organization Name: JPSmartEd</a></li>
+                        <li><a href="#">Portal Version: 1.0</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Developer And Designer</h4>
+                    <ul>
+                        <li><a href="#">Rimmon Bhowmick</a></li>
+                        <li><a href="#">Debangan Dasgupta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('.auto-type',
+            {
+                strings: ["Jayanta Das...", 'Sayonjyoti Dutta...','Tarun Banerjee...','All Students...'],
+                typeSpeed: 150,
+                backSpeed: 150
+            }
+        )
+    </script>
+</body>
+
+</html>

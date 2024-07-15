@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    Attendance
+{% endblock title %}
+{% block body %}
+
+  <div class="container my-3">
+    <h2>Previous Session List</h2>
+          {% if allEntry|length ==0 %}
+          <div class="alert alert-dark" role="alert">
+            No Entries To Be Shown, Add One To View!
+          </div>
+          {% else %}
+        <table class="table">
+            <tbody>
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Class Description</th>
+                <th scope="col">Date</th>
+                <th scope="col">Day</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+          {% for entry in allEntry %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{entry.class_desc}}</td>
+            <td>{{entry.date}}</td>
+            <td>{{entry.day}}</td>
+            <td>
+              <a href="/session_change/{{entry.sno}}"><button type="button" class="btn btn-outline-success btn-sm mx-1">Change</button></a>
+              <a href="/session_delete/{{entry.sno}}"><button type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</button></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+          {% endif %}
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+{% endblock body %}
