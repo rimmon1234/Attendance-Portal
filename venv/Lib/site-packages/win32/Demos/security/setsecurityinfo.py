@@ -1,7 +1,4 @@
-import win32api
-import win32con
-import win32process
-import win32security
+import win32security, win32api, win32con, win32process
 
 ## You need SE_RESTORE_NAME to be able to set the owner of a security descriptor to anybody
 ## other than yourself or your primary group.  Most admin logins don't have it by default, so

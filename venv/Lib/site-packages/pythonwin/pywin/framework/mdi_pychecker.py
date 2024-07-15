@@ -33,17 +33,11 @@
 ##
 ######################################################################
 
-import glob
-import os
-import re
-import sys
-import time
-
-import win32api
-import win32con
 import win32ui
-from pywin.mfc import dialog, docview, window
-
+import win32api
+from pywin.mfc import docview, dialog, window
+import win32con
+import sys, string, re, glob, os, stat, time
 from . import scriptutils
 
 
@@ -719,11 +713,11 @@ class TheDialog(dialog.Dialog):
 
     def OnOK(self):
         self.UpdateData(1)
-        for id, name in (
+        for id, name in [
             (101, "greppattern"),
             (102, "dirpattern"),
             (103, "filpattern"),
-        ):
+        ]:
             if not self[name]:
                 self.GetDlgItem(id).SetFocus()
                 win32api.MessageBeep()

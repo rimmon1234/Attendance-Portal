@@ -1,5 +1,6 @@
 import pythoncom
-from win32com.server import exception, util
+from win32com.server import util
+from win32com.server import exception
 
 VT_EMPTY = pythoncom.VT_EMPTY
 

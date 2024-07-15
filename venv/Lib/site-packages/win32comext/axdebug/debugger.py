@@ -1,20 +1,20 @@
-import os
-import string
-import sys
+import sys, traceback, string
+
+from win32com.axscript import axscript
+from win32com.axdebug import (
+    codecontainer,
+    axdebug,
+    gateways,
+    documents,
+    contexts,
+    adb,
+    expressions,
+)
+from win32com.axdebug.util import trace, _wrap, _wrap_remove
 
 import pythoncom
-import win32api
-from win32com.axdebug import (
-    adb,
-    axdebug,
-    codecontainer,
-    contexts,
-    documents,
-    expressions,
-    gateways,
-)
-from win32com.axdebug.util import _wrap, _wrap_remove, trace
-from win32com.axscript import axscript
+import win32api, winerror
+import os
 
 currentDebugger = None
 

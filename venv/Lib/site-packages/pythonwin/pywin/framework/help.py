@@ -1,10 +1,11 @@
 # help.py - help utilities for PythonWin.
-import os
-
-import regutil
 import win32api
 import win32con
 import win32ui
+import string
+import sys
+import regutil
+import string, os
 
 htmlhelp_handle = None
 

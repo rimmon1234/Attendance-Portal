@@ -7,11 +7,16 @@
 #
 # ID's for the tabstop dialog - out test.
 #
-import win32con
-import win32ui
-from pywin.mfc import dialog
+from win32ui import IDD_SET_TABSTOPS
+from win32ui import IDC_EDIT_TABS
+from win32ui import IDC_PROMPT_TABS
+from win32con import IDOK
 from win32con import IDCANCEL
-from win32ui import IDC_EDIT_TABS, IDC_PROMPT_TABS, IDD_SET_TABSTOPS
+
+import win32ui
+import win32con
+
+from pywin.mfc import dialog
 
 
 class TestDialog(dialog.Dialog):
@@ -112,6 +117,7 @@ def demo(modal=0):
 
 
 def test(modal=1):
+
     # 	dlg=dialog.Dialog(1010)
     # 	dlg.CreateWindow()
     # 	dlg.EndDialog(0)

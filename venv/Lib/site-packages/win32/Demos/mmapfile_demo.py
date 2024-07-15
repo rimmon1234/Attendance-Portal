@@ -1,9 +1,6 @@
-import os
-import tempfile
-
-import mmapfile
-import win32api
+import win32api, mmapfile
 import winerror
+import tempfile, os
 from pywin32_testutil import str2bytes
 
 system_info = win32api.GetSystemInfo()

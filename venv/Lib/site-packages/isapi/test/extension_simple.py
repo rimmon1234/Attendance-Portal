@@ -6,24 +6,21 @@
 # This will execute the method 'test1' below.  See below for the list of
 # test methods that are acceptable.
 
-import urllib.error
-import urllib.parse
-import urllib.request
+from isapi import isapicon, threaded_extension, ExtensionError
+from isapi.simple import SimpleFilter
+import traceback
+import urllib.request, urllib.parse, urllib.error
+import winerror
 
 # If we have no console (eg, am running from inside IIS), redirect output
 # somewhere useful - in this case, the standard win32 trace collector.
 import win32api
-import winerror
-
-from isapi import ExtensionError, isapicon, threaded_extension
-from isapi.simple import SimpleFilter
 
 try:
     win32api.GetConsoleTitle()
 except win32api.error:
     # No console - redirect
     import win32traceutil
-
 
 # The ISAPI extension - handles requests in our virtual dir, and sends the
 # response to the client.

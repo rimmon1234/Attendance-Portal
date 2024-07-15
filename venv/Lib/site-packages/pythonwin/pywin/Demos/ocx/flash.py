@@ -7,14 +7,10 @@
 # Update to the path of the .swf file (note it could be a true URL)
 flash_url = "c:\\bounce.swf"
 
-import sys
-
-import regutil
-import win32api
-import win32con
-import win32ui
-from pywin.mfc import activex, window
+import win32ui, win32con, win32api, regutil
+from pywin.mfc import window, activex
 from win32com.client import gencache
+import sys
 
 FlashModule = gencache.EnsureModule("{D27CDB6B-AE6D-11CF-96B8-444553540000}", 0, 1, 0)
 

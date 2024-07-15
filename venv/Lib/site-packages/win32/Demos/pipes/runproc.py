@@ -4,15 +4,14 @@ start a process with three inherited pipes.
 Try to write to and read from those.
 """
 
-import msvcrt
-import os
-
 import win32api
-import win32con
-import win32file
 import win32pipe
+import win32file
 import win32process
 import win32security
+import win32con
+import msvcrt
+import os
 
 
 class Process:

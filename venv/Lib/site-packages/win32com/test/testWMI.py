@@ -1,7 +1,7 @@
-import unittest
-
-import win32com.test.util
 from win32com.client import GetObject
+import win32com.test.util
+
+import unittest
 
 
 class Simple(win32com.test.util.TestCase):

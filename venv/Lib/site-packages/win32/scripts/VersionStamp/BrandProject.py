@@ -3,13 +3,9 @@
 # Brand a VSS project with a "build number", then optionally
 # stamp DLL/EXE files with version information.
 
-import os
-import string
-import sys
-
-import bulkstamp
+import win32api, os, string, sys
 import vssutil
-import win32api
+import bulkstamp
 
 
 def BrandProject(

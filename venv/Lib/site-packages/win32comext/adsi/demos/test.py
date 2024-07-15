@@ -1,7 +1,6 @@
-import string
-import sys
-
+import sys, string
 import pythoncom
+
 import win32api
 from win32com.adsi import *
 
@@ -226,8 +225,7 @@ def usage(tests):
 
 
 def main():
-    import getopt
-    import traceback
+    import getopt, traceback
 
     tests = []
     for ob in globals().values():

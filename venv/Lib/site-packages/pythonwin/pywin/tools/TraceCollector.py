@@ -1,9 +1,6 @@
 # win32traceutil like utility for Pythonwin
 import _thread
-
-import win32api
-import win32event
-import win32trace
+import win32trace, win32event, win32api
 from pywin.framework import winout
 
 outputWindow = None

@@ -2,13 +2,13 @@
 # (at least as far as most IDLE extensions are concerned)
 
 import string
+import win32api
+import win32ui
+import win32con
 import sys
 
-import win32api
-import win32con
-import win32ui
-from pywin import default_scintilla_encoding
 from pywin.mfc.dialog import GetSimpleInput
+from pywin import default_scintilla_encoding
 
 wordchars = string.ascii_uppercase + string.ascii_lowercase + string.digits
 
@@ -65,7 +65,6 @@ try:
     GetIDLEModule("AutoIndent").IndentSearcher.readline = fast_readline
 except AttributeError:  # GetIDLEModule may return None
     pass
-
 
 # A class that attempts to emulate an IDLE editor window.
 # Construct with a Pythonwin view.
@@ -275,7 +274,7 @@ def TkIndexToOffset(bm, edit, marks):
         word, nextTokPos = _NextTok(bm, nextTokPos)
         if word is None:
             break
-        if word in ("+", "-"):
+        if word in ["+", "-"]:
             num, nextTokPos = _NextTok(bm, nextTokPos)
             if num is None:
                 raise ValueError("+/- operator needs 2 args")
@@ -573,8 +572,7 @@ class IDLEWrapper:
 
 
 def IDLETest(extension):
-    import os
-    import sys
+    import sys, os
 
     modname = "pywin.idle." + extension
     __import__(modname)

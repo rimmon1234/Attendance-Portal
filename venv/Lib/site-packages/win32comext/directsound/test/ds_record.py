@@ -1,10 +1,8 @@
-import os
-import struct
-
 import pywintypes
-import win32api
+import struct
+import win32event, win32api
+import os
 import win32com.directsound.directsound as ds
-import win32event
 
 
 def wav_header_pack(wfx, datasize):

@@ -1,16 +1,16 @@
 # odbc test suite kindly contributed by Frank Millman.
-import os
 import sys
-import tempfile
+import os
 import unittest
-
 import odbc
-import pythoncom
-from pywin32_testutil import TestSkipped, str2bytes, str2memory
-from win32com.client import constants
+import tempfile
+
+from pywin32_testutil import str2bytes, str2memory, TestSkipped
 
 # We use the DAO ODBC driver
 from win32com.client.gencache import EnsureDispatch
+from win32com.client import constants
+import pythoncom
 
 
 class TestStuff(unittest.TestCase):

@@ -1,6 +1,5 @@
 # The Python ISAPI package.
 
-
 # Exceptions thrown by the DLL framework.
 class ISAPIError(Exception):
     def __init__(self, errno, strerror=None, funcname=None):

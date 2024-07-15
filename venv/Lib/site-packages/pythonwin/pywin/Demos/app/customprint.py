@@ -5,11 +5,12 @@
 
 # This sample was contributed by Roger Burnham.
 
-import win32api
+from pywin.mfc import docview, dialog, afxres
+from pywin.framework import app
+
 import win32con
 import win32ui
-from pywin.framework import app
-from pywin.mfc import afxres, dialog, docview
+import win32api
 
 PRINTDLGORD = 1538
 IDC_PRINT_MAG_EDIT = 1010
@@ -149,6 +150,7 @@ class PrintDemoApp(app.CApp):
 
 
 class ImagePrintDialog(dialog.PrintDialog):
+
     sectionPos = "Image Print Demo"
 
     def __init__(self, pInfo, dlgID, flags=win32ui.PD_USEDEVMODECOPIES):

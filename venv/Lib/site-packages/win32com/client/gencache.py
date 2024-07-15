@@ -20,17 +20,14 @@ Hacks, to do, etc
   Currently just uses a pickled dictionary, but should used some sort of indexed file.
   Maybe an OLE2 compound file, or a bsddb file?
 """
-import glob
-import os
-import sys
-from importlib import reload
-
+import pywintypes, os, sys
 import pythoncom
-import pywintypes
-import win32com
-import win32com.client
-
+import win32com, win32com.client
+import glob
+import traceback
 from . import CLSIDToClass
+import operator
+from importlib import reload
 
 bForDemandDefault = 0  # Default value of bForDemand - toggle this to change the world - see also makepy.py
 

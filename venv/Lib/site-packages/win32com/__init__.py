@@ -2,11 +2,8 @@
 # Initialization for the win32com package
 #
 
-import os
-import sys
-
+import win32api, sys, os
 import pythoncom
-import win32api
 
 # flag if we are in a "frozen" build.
 _frozen = getattr(sys, "frozen", 1 == 0)

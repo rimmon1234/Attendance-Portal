@@ -1,8 +1,10 @@
 import pythoncom
 import pywintypes
-from win32com import storagecon
+
 from win32com.ifilter import ifilter
 from win32com.ifilter.ifiltercon import *
+
+from win32com import storagecon
 
 
 class FileParser:
@@ -216,6 +218,7 @@ class FileParser:
             properties["comments"] = comments
 
     def _trace(self, *args):
+
         if self.verbose:
             ret = " ".join([str(arg) for arg in args])
             try:
@@ -251,8 +254,8 @@ def _usage():
 
 
 if __name__ == "__main__":
-    import operator
     import sys
+    import operator
 
     fName = ""
     verbose = False

@@ -13,8 +13,7 @@ functions directly.
 """
 # Based on Roger Upole's sspi demos.
 # $Id$
-import sspicon
-import win32security
+import win32security, sspicon
 
 error = win32security.error
 

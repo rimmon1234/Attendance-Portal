@@ -1,8 +1,6 @@
 """Support for ActiveX control hosting in Pythonwin.
 """
-import win32ui
-import win32uiole
-
+import win32ui, win32uiole
 from . import window
 
 # XXX - we are still "classic style" classes in py2x, so we need can't yet

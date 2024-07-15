@@ -4,16 +4,13 @@
 #
 
 import sys
-import traceback
-
-import pythoncom
-import win32com.client
-import win32com.client.dynamic
-import win32com.client.gencache
 import winerror
-from pywin32_testutil import str2memory
+import pythoncom, win32com.client, win32com.client.dynamic, win32com.client.gencache
 from win32com.server.util import NewCollection, wrap
 from win32com.test import util
+from pywin32_testutil import str2memory
+
+import traceback
 
 # for debugging
 useDispatcher = None
@@ -21,7 +18,6 @@ useDispatcher = None
 ##  useDispatcher = win32com.server.dispatcher.DefaultDebugDispatcher
 
 error = RuntimeError
-
 
 # Set up a COM object that VB will do some callbacks on.  This is used
 # to test byref params for gateway IDispatch.

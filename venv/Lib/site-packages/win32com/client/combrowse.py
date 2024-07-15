@@ -22,14 +22,12 @@
    work.
 
 """
-import sys
-
-import pythoncom
-import win32api
 import win32con
-import win32ui
-from pywin.tools import browser
+import win32api, win32ui
+import sys
+import pythoncom
 from win32com.client import util
+from pywin.tools import browser
 
 
 class HLIRoot(browser.HLIPythonObject):
@@ -451,7 +449,7 @@ class HLITypeLibFunction(HLICOM):
             typname = self.vartypes[justtyp]
         except KeyError:
             typname = "?Bad type?"
-        for flag, desc in self.type_flags:
+        for (flag, desc) in self.type_flags:
             if flag & typ:
                 typname = "%s(%s)" % (desc, typname)
         return typname

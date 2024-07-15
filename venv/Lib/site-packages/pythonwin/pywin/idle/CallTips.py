@@ -1,13 +1,14 @@
 # CallTips.py - An IDLE extension that provides "Call Tips" - ie, a floating window that
 # displays parameter information as you open parens.
 
-import inspect
 import string
 import sys
+import inspect
 import traceback
 
 
 class CallTips:
+
     menudefs = []
 
     keydefs = {
@@ -129,7 +130,7 @@ def get_arg_text(ob):
             fob = ob
         if inspect.isfunction(fob) or inspect.ismethod(fob):
             try:
-                argText = str(inspect.signature(fob))
+                argText = inspect.formatargspec(*inspect.getfullargspec(fob))
             except:
                 print("Failed to format the args")
                 traceback.print_exc()

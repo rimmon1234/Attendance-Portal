@@ -1,12 +1,12 @@
 # testClipboard.py
 import unittest
-
 import pythoncom
-import win32clipboard
 import win32con
 import winerror
-from win32com.server.exception import COMException
+import win32clipboard
+
 from win32com.server.util import NewEnum, wrap
+from win32com.server.exception import COMException
 
 IDataObject_Methods = """GetData GetDataHere QueryGetData
                          GetCanonicalFormatEtc SetData EnumFormatEtc

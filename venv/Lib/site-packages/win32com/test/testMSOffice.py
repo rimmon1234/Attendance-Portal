@@ -5,18 +5,14 @@
 
 # Assumes Word and Excel installed on your machine.
 
-import traceback
-
-import pythoncom
-import win32api
-import win32com
+import win32com, sys, string, win32api, traceback
 import win32com.client.dynamic
-from pywintypes import Unicode
-from win32com.client import gencache
 from win32com.test.util import CheckClean
+import pythoncom
+from win32com.client import gencache
+from pywintypes import Unicode
 
 error = "MSOffice test error"
-
 
 # Test a few of the MSOffice components.
 def TestWord():

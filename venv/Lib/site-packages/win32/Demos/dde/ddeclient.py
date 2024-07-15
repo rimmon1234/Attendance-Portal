@@ -1,7 +1,7 @@
 # 'Request' example added jjk  11/20/98
 
-import dde
 import win32ui
+import dde
 
 server = dde.CreateServer()
 server.Create("TestClient")

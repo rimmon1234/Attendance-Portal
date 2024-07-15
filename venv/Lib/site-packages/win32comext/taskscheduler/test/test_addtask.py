@@ -1,9 +1,4 @@
-import os
-import sys
-import time
-
-import pythoncom
-import win32api
+import pythoncom, sys, os, time, win32api
 from win32com.taskscheduler import taskscheduler
 
 task_name = "test_addtask.job"

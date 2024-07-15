@@ -2,9 +2,7 @@
 # Originally submitted with bug:
 # [ 753154 ] memory leak wrapping object having _typelib_guid_ attribute
 # but modified by mhammond for use as part of the test suite.
-import os
-import sys
-
+import sys, os
 import pythoncom
 import win32com
 import winerror

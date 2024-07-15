@@ -20,13 +20,15 @@
 #   running this sample you will see an IE Windows briefly appear, but
 #   vanish without ever being repainted.
 
-import time
+import sys
+import os
+import win32com.client
+import win32api
+import win32event
 
 # sys.coinit_flags not set, so pythoncom initializes apartment-threaded.
 import pythoncom
-import win32api
-import win32com.client
-import win32event
+import time
 
 
 class ExplorerEvents:

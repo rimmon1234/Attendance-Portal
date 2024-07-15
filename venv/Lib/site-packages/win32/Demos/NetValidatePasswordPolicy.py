@@ -24,13 +24,12 @@ which always (with and without '-m') seems to return:
 > Result of 'auth' validation is 2701: Password must change at next logon
 """
 
-import optparse
 import sys
-from pprint import pprint
-
 import win32api
-import win32net
-import win32netcon
+import win32net, win32netcon
+
+import optparse
+from pprint import pprint
 
 
 def main():

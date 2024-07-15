@@ -1,10 +1,8 @@
 # A couple of samples using SHBrowseForFolder
 
-import os
-
-import win32gui
+import sys, os
 from win32com.shell import shell, shellcon
-
+import win32gui
 
 # A callback procedure - called by SHBrowseForFolder
 def BrowseCallbackProc(hwnd, msg, lp, data):

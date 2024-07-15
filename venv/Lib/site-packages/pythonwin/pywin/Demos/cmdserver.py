@@ -2,12 +2,13 @@
 
 # Demo code that is not Pythonwin related, but too good to throw away...
 
-import _thread
-import sys
-import traceback
-
 import win32api
+import sys
 from pywin.framework import winout
+
+import _thread, sys
+
+import traceback
 
 
 class ThreadWriter:

@@ -5,12 +5,11 @@
 
 # Very simple -  queries a modem for ATI responses
 
-import pythoncom
+import win32ui, win32uiole
 import win32con
-import win32ui
-import win32uiole
-from pywin.mfc import activex, dialog
+from pywin.mfc import dialog, activex
 from win32com.client import gencache
+import pythoncom
 
 SERIAL_SETTINGS = "19200,n,8,1"
 SERIAL_PORT = 2

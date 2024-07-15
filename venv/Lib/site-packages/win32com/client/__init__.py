@@ -6,12 +6,11 @@
 # dispatch object, the known class will be used.  This contrasts
 # with dynamic.Dispatch behaviour, where dynamic objects are always used.
 
-import sys
-
 import pythoncom
+from . import dynamic
+from . import gencache
+import sys
 import pywintypes
-
-from . import dynamic, gencache
 
 _PyIDispatchType = pythoncom.TypeIIDs[pythoncom.IID_IDispatch]
 
@@ -234,7 +233,6 @@ class Constants:
 
 # And create an instance.
 constants = Constants()
-
 
 # A helpers for DispatchWithEvents - this becomes __setattr__ for the
 # temporary class.

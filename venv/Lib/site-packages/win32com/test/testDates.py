@@ -1,12 +1,11 @@
-import unittest
 from datetime import datetime
+import unittest
 
 import pywintypes
 import win32com.client
-import win32com.server.util
 import win32com.test.util
+import win32com.server.util
 from win32timezone import TimeZoneInfo
-
 
 # A COM object so we can pass dates to and from the COM boundary.
 class Tester:

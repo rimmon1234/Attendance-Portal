@@ -1,7 +1,5 @@
 # Generate a base file name
-import os
-import time
-
+import time, os
 import win32api
 import win32evtlog
 

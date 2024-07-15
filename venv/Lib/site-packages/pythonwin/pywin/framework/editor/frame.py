@@ -1,13 +1,15 @@
 # frame.py - The MDI frame window for an editor.
 import pywin.framework.window
-import win32con
 import win32ui
+import win32con
+import afxres
 
 from . import ModuleBrowser
 
 
 class EditorFrame(pywin.framework.window.MDIChildWnd):
     def OnCreateClient(self, cp, context):
+
         # Create the default view as specified by the template (ie, the editor view)
         view = context.template.MakeView(context.doc)
         # Create the browser view.

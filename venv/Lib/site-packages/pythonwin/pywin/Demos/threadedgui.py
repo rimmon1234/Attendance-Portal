@@ -2,12 +2,14 @@
 
 # Also demo of a GUI thread, pretty much direct from the MFC C++ sample MTMDI.
 
-import timer
-import win32api
-import win32con
 import win32ui
-from pywin.mfc import docview, thread, window
+import win32con
+import win32api
+import timer
+
+from pywin.mfc import window, docview, thread
 from pywin.mfc.thread import WinThread
+
 
 WM_USER_PREPARE_TO_CLOSE = win32con.WM_USER + 32
 
@@ -18,7 +20,6 @@ WM_USER_PREPARE_TO_CLOSE = win32con.WM_USER + 32
 #   weight		weight of font (win32con.FW_NORMAL, win32con.FW_BOLD)
 #   italic		boolean; true if set to anything but None
 #   underline	boolean; true if set to anything but None
-
 
 # This window is a child window of a frame.  It is not the frame window itself.
 class FontWindow(window.Wnd):

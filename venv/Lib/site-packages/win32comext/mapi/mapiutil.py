@@ -3,9 +3,8 @@
 TupleType = tuple
 ListType = list
 IntType = int
-import pythoncom
 from pywintypes import TimeType
-
+import pythoncom
 from . import mapi, mapitags
 
 prTable = {}
@@ -34,6 +33,7 @@ def GetPropTagName(pt):
                     mapitags.PROP_TYPE(value) == mapitags.PT_UNICODE
                     or mapitags.PROP_TYPE(value) == mapitags.PT_STRING8
                 ):
+
                     if name[-2:] == "_A" or name[-2:] == "_W":
                         prTable[value] = name
                     else:

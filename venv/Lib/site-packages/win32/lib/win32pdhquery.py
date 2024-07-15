@@ -125,12 +125,7 @@ if you use it, you accept the risk of using it, etceteras.
 """
 # Feb 12, 98 - MH added "rawaddcounter" so caller can get exception details.
 
-import _thread
-import copy
-import time
-
-import win32api
-import win32pdh
+import win32pdh, win32api, time, _thread, copy
 
 
 class BaseQuery:
@@ -331,9 +326,7 @@ class BaseQuery:
                 if not ok:
                     temp.append(-1)  # a better way to signal failure???
             return temp
-        except (
-            win32api.error
-        ):  # will happen if, for instance, no counters are part of the query and we attempt to collect data for it.
+        except win32api.error:  # will happen if, for instance, no counters are part of the query and we attempt to collect data for it.
             return [-1] * len(self.counters)
 
     # pickle functions

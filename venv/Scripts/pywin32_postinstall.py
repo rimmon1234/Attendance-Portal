@@ -2,10 +2,10 @@
 #
 # copies PyWinTypesxx.dll and PythonCOMxx.dll into the system directory,
 # and creates a pth file
-import glob
 import os
-import shutil
 import sys
+import glob
+import shutil
 import sysconfig
 
 try:
@@ -141,8 +141,7 @@ except NameError:
 
 
 def CopyTo(desc, src, dest):
-    import win32api
-    import win32con
+    import win32api, win32con
 
     while 1:
         try:
@@ -178,8 +177,7 @@ def CopyTo(desc, src, dest):
 # our pywintypes_system32 directory.
 def LoadSystemModule(lib_dir, modname):
     # See if this is a debug build.
-    import importlib.machinery
-    import importlib.util
+    import importlib.util, importlib.machinery
 
     suffix = "_d" if "_d.pyd" in importlib.machinery.EXTENSION_SUFFIXES else ""
     filename = "%s%d%d%s.dll" % (
@@ -379,8 +377,7 @@ def fixup_dbi():
     # We used to have a dbi.pyd with our .pyd files, but now have a .py file.
     # If the user didn't uninstall, they will find the .pyd which will cause
     # problems - so handle that.
-    import win32api
-    import win32con
+    import win32api, win32con
 
     pyd_name = os.path.join(os.path.dirname(win32api.__file__), "dbi.pyd")
     pyd_d_name = os.path.join(os.path.dirname(win32api.__file__), "dbi_d.pyd")

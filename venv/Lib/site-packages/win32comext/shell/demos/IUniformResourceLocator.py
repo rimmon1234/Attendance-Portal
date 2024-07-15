@@ -1,8 +1,6 @@
-import os
-
 import pythoncom
-import win32api
 from win32com.shell import shell, shellcon
+import win32api, os
 
 
 class InternetShortcut:

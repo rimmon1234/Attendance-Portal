@@ -2,18 +2,14 @@
 
 # this code adapted from "Tomcat JK2 ISAPI redirector", part of Apache
 # Created July 2004, Mark Hammond.
-import imp
-import os
-import shutil
-import stat
-import sys
-import traceback
-
-import pythoncom
+import sys, os, imp, shutil, stat
+import operator
+from win32com.client import GetObject, Dispatch
+from win32com.client.gencache import EnsureModule, EnsureDispatch
 import win32api
+import pythoncom
 import winerror
-from win32com.client import Dispatch, GetObject
-from win32com.client.gencache import EnsureDispatch, EnsureModule
+import traceback
 
 _APP_INPROC = 0
 _APP_OUTPROC = 1

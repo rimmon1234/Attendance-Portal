@@ -1,14 +1,13 @@
 # General test module for win32api - please add some :)
-import array
-import os
-import sys
+import sys, os
 import unittest
 
-import pywintypes
-import win32con
-import win32gui
-from pywin32_testutil import str2bytes
 from win32clipboard import *
+import win32gui, win32con
+import pywintypes
+import array
+
+from pywin32_testutil import str2bytes
 
 custom_format_name = "PythonClipboardTestFormat"
 

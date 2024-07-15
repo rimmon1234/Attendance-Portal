@@ -7,7 +7,6 @@
 # >>> browser.Browse(your_module)
 import sys
 import types
-
 import __main__
 import win32ui
 from pywin.mfc import dialog
@@ -15,7 +14,6 @@ from pywin.mfc import dialog
 from . import hierlist
 
 special_names = ["__doc__", "__name__", "__self__"]
-
 
 #
 # HierList items
@@ -80,7 +78,7 @@ class HLIPythonObject(hierlist.HierListItem):
     def GetSubList(self):
         ret = []
         try:
-            for key, ob in self.myobject.__dict__.items():
+            for (key, ob) in self.myobject.__dict__.items():
                 if key not in special_names:
                     ret.append(MakeHLI(ob, key))
         except (AttributeError, TypeError):
@@ -379,9 +377,9 @@ def ShowObject(object, title):
 
 
 # And some mods for a sizable dialog from Sam Rushing!
-import commctrl
-import win32api
 import win32con
+import win32api
+import commctrl
 
 
 class dynamic_browser(dialog.Dialog):
@@ -435,7 +433,6 @@ def Browse(ob=__main__):
 
     dlg = dynamic_browser(root)
     dlg.CreateWindow()
-    return dlg
 
 
 #

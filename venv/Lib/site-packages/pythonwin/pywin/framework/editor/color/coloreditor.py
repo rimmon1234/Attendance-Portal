@@ -1,18 +1,20 @@
 # Color Editor originally by Neil Hodgson, but restructured by mh to integrate
 # even tighter into Pythonwin.
+import win32ui
+import win32con
+import win32api
+import sys
 
 import pywin.scintilla.keycodes
-import win32api
-import win32con
-import win32ui
+from pywin.scintilla import bindings
+
 from pywin.framework.editor import (
-    GetEditorFontOption,
     GetEditorOption,
-    SetEditorFontOption,
     SetEditorOption,
+    GetEditorFontOption,
+    SetEditorFontOption,
     defaultCharacterFormat,
 )
-from pywin.scintilla import bindings
 
 # from pywin.framework.editor import EditorPropertyPage
 
@@ -25,11 +27,11 @@ MARKER_BOOKMARK = 0
 MARKER_BREAKPOINT = 1
 MARKER_CURRENT = 2
 
-import pywin.scintilla.view
 from pywin.debugger import dbgcon
+from pywin.scintilla.document import CScintillaDocument
 from pywin.framework.editor.document import EditorDocumentBase
 from pywin.scintilla import scintillacon  # For the marker definitions
-from pywin.scintilla.document import CScintillaDocument
+import pywin.scintilla.view
 
 
 class SyntEditDocument(EditorDocumentBase):
@@ -63,12 +65,13 @@ class SyntEditView(SyntEditViewParent):
 
         self.HookMessage(self.OnRClick, win32con.WM_RBUTTONDOWN)
 
-        for id in (
+        for id in [
             win32ui.ID_VIEW_FOLD_COLLAPSE,
             win32ui.ID_VIEW_FOLD_COLLAPSE_ALL,
             win32ui.ID_VIEW_FOLD_EXPAND,
             win32ui.ID_VIEW_FOLD_EXPAND_ALL,
-        ):
+        ]:
+
             self.HookCommand(self.OnCmdViewFold, id)
             self.HookCommandUpdate(self.OnUpdateViewFold, id)
         self.HookCommand(self.OnCmdViewFoldTopLevel, win32ui.ID_VIEW_FOLD_TOPLEVEL)
@@ -381,7 +384,7 @@ class SyntEditView(SyntEditViewParent):
             cmdui.Enable(0)
             return
         id = cmdui.m_nID
-        if id in (win32ui.ID_VIEW_FOLD_EXPAND_ALL, win32ui.ID_VIEW_FOLD_COLLAPSE_ALL):
+        if id in [win32ui.ID_VIEW_FOLD_EXPAND_ALL, win32ui.ID_VIEW_FOLD_COLLAPSE_ALL]:
             cmdui.Enable()
         else:
             enable = 0

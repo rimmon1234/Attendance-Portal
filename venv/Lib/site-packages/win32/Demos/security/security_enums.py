@@ -1,6 +1,4 @@
-import ntsecuritycon
-import win32security
-import winnt
+import win32security, ntsecuritycon, winnt
 
 
 class Enum:

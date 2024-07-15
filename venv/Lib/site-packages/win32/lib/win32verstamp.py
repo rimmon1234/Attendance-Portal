@@ -1,13 +1,14 @@
 """ Stamp a Win32 binary with version information.
 """
 
-import glob
-import optparse
+from win32api import BeginUpdateResource, UpdateResource, EndUpdateResource
+
 import os
 import struct
+import glob
 import sys
 
-from win32api import BeginUpdateResource, EndUpdateResource, UpdateResource
+import optparse
 
 VS_FFI_SIGNATURE = -17890115  # 0xFEEF04BD
 VS_FFI_STRUCVERSION = 0x00010000
@@ -15,8 +16,6 @@ VS_FFI_FILEFLAGSMASK = 0x0000003F
 VOS_NT_WINDOWS32 = 0x00040004
 
 null_byte = "\0".encode("ascii")  # str in py2k, bytes in py3k
-
-
 #
 # Set VS_FF_PRERELEASE and DEBUG if Debug
 #

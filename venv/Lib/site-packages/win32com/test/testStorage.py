@@ -1,9 +1,8 @@
-import unittest
-
-import pythoncom
-import win32api
-import win32com.test.util
 from win32com import storagecon
+import pythoncom, os, win32api
+import win32com.test.util
+
+import unittest
 
 
 class TestEnum(win32com.test.util.TestCase):

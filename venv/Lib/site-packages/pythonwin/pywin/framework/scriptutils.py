@@ -1,18 +1,18 @@
 """
 Various utilities for running/importing a script
 """
-import bdb
-import linecache
-import os
 import sys
-import traceback
-
-import __main__
+import win32ui
 import win32api
 import win32con
-import win32ui
+import __main__
 from pywin.mfc import dialog
 from pywin.mfc.docview import TreeView
+import os
+import string
+import traceback
+import linecache
+import bdb
 
 from .cmdline import ParseArgs
 
@@ -31,7 +31,6 @@ Post-Mortem of unhandled exceptions""".split(
 byte_cr = "\r".encode("ascii")
 byte_lf = "\n".encode("ascii")
 byte_crlf = "\r\n".encode("ascii")
-
 
 # A dialog box for the "Run Script" command.
 class DlgRunScript(dialog.Dialog):
@@ -54,9 +53,7 @@ class DlgRunScript(dialog.Dialog):
         if not self.bHaveDebugger:
             cbo.EnableWindow(0)
 
-    def OnBrowse(self, id, code):
-        if code != 0:  # BN_CLICKED
-            return 1
+    def OnBrowse(self, id, cmd):
         openFlags = win32con.OFN_OVERWRITEPROMPT | win32con.OFN_FILEMUSTEXIST
         dlg = win32ui.CreateFileDialog(
             1, None, None, openFlags, "Python Scripts (*.py)|*.py||", self
@@ -444,7 +441,7 @@ def ImportFile():
         if getattr(mod, "__file__", None):
             fname = mod.__file__
             base, ext = os.path.splitext(fname)
-            if ext.lower() in (".pyo", ".pyc"):
+            if ext.lower() in [".pyo", ".pyc"]:
                 ext = ".py"
             fname = base + ext
             if win32ui.ComparePath(fname, pathName):

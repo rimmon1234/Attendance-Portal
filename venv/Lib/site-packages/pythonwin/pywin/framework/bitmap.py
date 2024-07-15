@@ -1,11 +1,12 @@
-import os
-
-import win32api
-import win32con
 import win32ui
-from pywin.mfc import docview, window
-
+import win32con
+import win32api
+import string
+import os
 from . import app
+import sys
+
+from pywin.mfc import docview, window
 
 bStretch = 1
 

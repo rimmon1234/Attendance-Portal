@@ -12,11 +12,11 @@
 # So in short, please make sure you *really* want to do this, otherwise just
 # stick with the default.
 
-import os
 import sys
-
-import servicemanager
+import os
 import win32serviceutil
+import servicemanager
+
 from pipeTestService import TestPipeService
 
 

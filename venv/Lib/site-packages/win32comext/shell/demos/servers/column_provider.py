@@ -9,14 +9,13 @@
 # * Right-click an explorer column header - select "More"
 # * Locate column 'pyc size' or 'pyo size', and add it to the view.
 # This handler is providing that column data.
-import os
-import stat
-
-import commctrl
+import sys, os, stat
 import pythoncom
-from pywintypes import IID
-from win32com.server.util import wrap
 from win32com.shell import shell, shellcon
+import commctrl
+import winerror
+from win32com.server.util import wrap
+from pywintypes import IID
 
 IPersist_Methods = ["GetClassID"]
 IColumnProvider_Methods = IPersist_Methods + [
@@ -35,7 +34,6 @@ class ColumnProvider:
         shell.IID_IColumnProvider,
     ]
     _public_methods_ = IColumnProvider_Methods
-
     # IPersist
     def GetClassID(self):
         return self._reg_clsid_

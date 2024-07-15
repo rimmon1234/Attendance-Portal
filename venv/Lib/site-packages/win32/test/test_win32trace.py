@@ -1,10 +1,9 @@
-import os
-import sys
+import unittest
+import win32trace
 import threading
 import time
-import unittest
-
-import win32trace
+import os
+import sys
 from pywin32_testutil import TestSkipped
 
 if __name__ == "__main__":
@@ -84,7 +83,7 @@ class TestInitOps(unittest.TestCase):
         # test for either the correct data or an empty string
         win32trace.TermWrite()
         win32trace.InitRead()
-        self.assertTrue(win32trace.read() in ("Ta da", ""))
+        self.assertTrue(win32trace.read() in ["Ta da", ""])
         win32trace.TermRead()
 
         # we keep the data because we init read before terminating write

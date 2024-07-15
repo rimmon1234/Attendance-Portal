@@ -1,10 +1,6 @@
 fname = r"h:\tmp.txt"
 
-import ntsecuritycon
-import win32api
-import win32con
-import win32file
-import win32security
+import win32security, win32file, win32api, ntsecuritycon, win32con
 
 new_privs = (
     (

@@ -7,12 +7,10 @@
 # You can run this with no args, and a test database will be generated.
 # You can optionally pass a dbname on the command line, in which case it will be dumped.
 
-import os
-import sys
-
 import pythoncom
+from win32com.client import gencache, constants, Dispatch
 import win32api
-from win32com.client import Dispatch, constants, gencache
+import os, sys
 
 
 def CreateTestAccessDatabase(dbname=None):
@@ -175,7 +173,6 @@ def test(dbname=None):
 
 if __name__ == "__main__":
     import sys
-
     from .util import CheckClean
 
     dbname = None

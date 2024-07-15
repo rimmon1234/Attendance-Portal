@@ -1,13 +1,8 @@
 # The start of a win32gui generic demo.
 # Feel free to contribute more demos back ;-)
 
-import math
-import random
-import time
-
-import win32api
-import win32con
-import win32gui
+import win32gui, win32con, win32api
+import time, math, random
 
 
 def _MyCallback(hwnd, extra):

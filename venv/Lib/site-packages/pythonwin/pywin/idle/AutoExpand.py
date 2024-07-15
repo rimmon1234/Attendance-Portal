@@ -1,5 +1,5 @@
-import re
 import string
+import re
 
 ###$ event <<expand-word>>
 ###$ win <Alt-slash>
@@ -7,6 +7,7 @@ import string
 
 
 class AutoExpand:
+
     keydefs = {
         "<<expand-word>>": ["<Alt-slash>"],
     }

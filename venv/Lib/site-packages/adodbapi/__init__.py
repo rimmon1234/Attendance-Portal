@@ -6,28 +6,25 @@ Copyright (C) 2002 Henrik Ekelund, version 2.1 by Vernon Cole
 import sys
 import time
 
-from .adodbapi import Connection, Cursor, __version__, connect, dateconverter
+from .apibase import apilevel, threadsafety, paramstyle
 from .apibase import (
-    BINARY,
-    DATETIME,
-    NUMBER,
-    ROWID,
-    STRING,
+    Warning,
+    Error,
+    InterfaceError,
     DatabaseError,
     DataError,
-    Error,
-    FetchFailedError,
-    IntegrityError,
-    InterfaceError,
-    InternalError,
-    NotSupportedError,
     OperationalError,
-    ProgrammingError,
-    Warning,
-    apilevel,
-    paramstyle,
-    threadsafety,
+    IntegrityError,
 )
+from .apibase import (
+    InternalError,
+    ProgrammingError,
+    NotSupportedError,
+    FetchFailedError,
+)
+from .apibase import NUMBER, STRING, BINARY, DATETIME, ROWID
+
+from .adodbapi import connect, Connection, __version__, dateconverter, Cursor
 
 
 def Binary(aString):
@@ -52,15 +49,13 @@ def Timestamp(year, month, day, hour, minute, second):
 
 def DateFromTicks(ticks):
     """This function constructs an object holding a date value from the given ticks value
-    (number of seconds since the epoch; see the documentation of the standard Python time module for details).
-    """
+    (number of seconds since the epoch; see the documentation of the standard Python time module for details)."""
     return Date(*time.gmtime(ticks)[:3])
 
 
 def TimeFromTicks(ticks):
     """This function constructs an object holding a time value from the given ticks value
-    (number of seconds since the epoch; see the documentation of the standard Python time module for details).
-    """
+    (number of seconds since the epoch; see the documentation of the standard Python time module for details)."""
     return Time(*time.gmtime(ticks)[3:6])
 
 

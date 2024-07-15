@@ -1,5 +1,4 @@
 import sys
-
 import adodbapi
 
 try:

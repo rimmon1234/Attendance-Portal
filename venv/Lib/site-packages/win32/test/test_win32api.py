@@ -1,16 +1,12 @@
 # General test module for win32api - please add some :)
 
-import datetime
-import os
-import sys
-import tempfile
 import unittest
+from pywin32_testutil import str2bytes, TestSkipped
 
-import win32api
-import win32con
-import win32event
-import winerror
-from pywin32_testutil import TestSkipped, str2bytes
+import win32api, win32con, win32event, winerror
+import sys, os
+import tempfile
+import datetime
 
 
 class CurrentUserTestCase(unittest.TestCase):
@@ -20,7 +16,7 @@ class CurrentUserTestCase(unittest.TestCase):
             # Running as a service account, so the comparison will fail
             raise TestSkipped("running as service account")
         name = "%s\\%s" % (domain, win32api.GetUserName())
-        self.assertEqual(name, win32api.GetUserNameEx(win32api.NameSamCompatible))
+        self.assertEquals(name, win32api.GetUserNameEx(win32api.NameSamCompatible))
 
 
 class TestTime(unittest.TestCase):
@@ -248,20 +244,6 @@ class Misc(unittest.TestCase):
     def testVkKeyScanEx(self):
         # hopefully ' ' doesn't depend on the locale!
         self.assertEqual(win32api.VkKeyScanEx(" ", 0), 32)
-
-    def testGetSystemPowerStatus(self):
-        # Dummy
-        sps = win32api.GetSystemPowerStatus()
-        self.assertIsInstance(sps, dict)
-        test_keys = (
-            "ACLineStatus",
-            "BatteryFlag",
-            "BatteryLifePercent",
-            "SystemStatusFlag",
-            "BatteryLifeTime",
-            "BatteryFullLifeTime",
-        )
-        self.assertEqual(set(test_keys), set(sps.keys()))
 
 
 if __name__ == "__main__":

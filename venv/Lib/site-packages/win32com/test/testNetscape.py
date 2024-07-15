@@ -2,9 +2,8 @@
 
 # But this is the general idea.
 
-import sys
-
 import netscape
+import sys
 
 error = "Netscape Test Error"
 

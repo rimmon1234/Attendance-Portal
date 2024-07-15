@@ -1,6 +1,5 @@
-import unittest
-
 import pythoncom
+import unittest
 import win32com.test.util
 import winerror
 

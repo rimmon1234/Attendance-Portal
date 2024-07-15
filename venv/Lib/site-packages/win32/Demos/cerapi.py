@@ -2,14 +2,13 @@
 #
 # This connects to a CE device, and interacts with it.
 
-import getopt
-import os
-import sys
-
+import wincerapi
+import win32event
 import win32api
 import win32con
-import win32event
-import wincerapi
+import os
+import sys
+import getopt
 
 
 def DumpPythonRegistry():

@@ -1,18 +1,13 @@
 """The glue between the Python debugger interface and the Active Debugger interface
 """
-import _thread
-import bdb
-import os
-import sys
-import traceback
-
-import pythoncom
-import win32api
-import win32com.client.connect
-from win32com.axdebug.util import _wrap, _wrap_remove, trace
+from win32com.axdebug.util import trace, _wrap, _wrap_remove
 from win32com.server.util import unwrap
-
-from . import axdebug, gateways, stackframe
+import win32com.client.connect
+from . import gateways
+import sys, bdb, traceback
+import axdebug, stackframe
+import win32api, pythoncom
+import _thread, os
 
 
 def fnull(*args):
@@ -436,6 +431,7 @@ class Adb(bdb.Bdb, gateways.RemoteDebugApplicationEvents):
         #                       return
 
         if len(self.breaks) or self.breakFlags:
+
             if self.logicalbotframe:
                 trace("BreakFlagsChange with bot frame", _dumpf(self.logicalbotframe))
                 # We have frames not to be debugged (eg, Scripting engine frames

@@ -18,9 +18,7 @@ Example:
   the easiest way is often to simply use PerfMon to find out the names.
 """
 
-import time
-
-import win32pdh
+import win32pdh, time
 
 error = win32pdh.error
 
@@ -32,8 +30,7 @@ counter_english_map = {}
 
 def find_pdh_counter_localized_name(english_name, machine_name=None):
     if not counter_english_map:
-        import win32api
-        import win32con
+        import win32api, win32con
 
         counter_reg_value = win32api.RegQueryValueEx(
             win32con.HKEY_PERFORMANCE_DATA, "Counter 009"

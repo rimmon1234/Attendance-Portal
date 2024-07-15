@@ -1,10 +1,9 @@
-import os
-
-import commctrl
 import win32ui
-from pywin.mfc import docview, window
-from pywin.tools import hierlist
+import os
+import commctrl
 
+from pywin.tools import hierlist
+from pywin.mfc import docview, window
 
 # directory listbox
 # This has obvious limitations - doesnt track subdirs, etc.  Demonstrates
@@ -114,7 +113,7 @@ class HLIFileDir(hierlist.HierListItem):
     def GetSubList(self):
         ret = []
         for newname in os.listdir(self.filename):
-            if newname not in (".", ".."):
+            if newname not in [".", ".."]:
                 ret.append(HLIFileDir(os.path.join(self.filename, newname)))
         return ret
 

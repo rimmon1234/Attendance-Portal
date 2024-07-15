@@ -4,16 +4,15 @@
 # a "standard" MFC edit control (eg, control.GetTextLength(), control.GetSel()
 # plus many Scintilla specific features (eg control.SCIAddStyledText())
 
-import array
-import os
-import struct
-
-import win32api
+from pywin.mfc import window
+from pywin import default_scintilla_encoding
 import win32con
 import win32ui
-from pywin import default_scintilla_encoding
-from pywin.mfc import window
-
+import win32api
+import array
+import struct
+import string
+import os
 from . import scintillacon
 
 # Load Scintilla.dll to get access to the control.
@@ -24,9 +23,7 @@ if win32ui.debug:  # If running _d version of Pythonwin...
         dllid = win32api.LoadLibrary(
             os.path.join(os.path.split(win32ui.__file__)[0], "Scintilla_d.DLL")
         )
-    except (
-        win32api.error
-    ):  # Not there - we dont _need_ a debug ver, so ignore this error.
+    except win32api.error:  # Not there - we dont _need_ a debug ver, so ignore this error.
         pass
 if dllid is None:
     try:

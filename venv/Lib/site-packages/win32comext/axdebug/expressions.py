@@ -1,15 +1,11 @@
-import io
+import axdebug, gateways
+from .util import _wrap, _wrap_remove, RaiseNotImpl
+import io, traceback
+from pprint import pprint
+from win32com.server.exception import COMException
+import winerror
 import string
 import sys
-import traceback
-from pprint import pprint
-
-import winerror
-from win32com.server.exception import COMException
-
-from . import axdebug, gateways
-from .util import RaiseNotImpl, _wrap, _wrap_remove
-
 
 # Given an object, return a nice string
 def MakeNiceString(ob):

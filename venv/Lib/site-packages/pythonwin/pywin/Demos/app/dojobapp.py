@@ -5,11 +5,12 @@
 # This should be run using the command line:
 # pythonwin /app demos\dojobapp.py
 
-
+import win32ui
 import win32api
 import win32con
-import win32ui
+import sys
 from pywin.framework import app, dlgappcore
+import string
 
 
 class DoJobAppDialog(dlgappcore.AppDialog):

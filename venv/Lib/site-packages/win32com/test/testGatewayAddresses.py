@@ -34,13 +34,11 @@
 # The rest are tested here.
 
 
-import pythoncom
 from win32com.server.util import wrap
-
+import pythoncom
 from .util import CheckClean
 
 numErrors = 0
-
 
 # Check that the 2 objects both have identical COM pointers.
 def CheckSameCOMObject(ob1, ob2):

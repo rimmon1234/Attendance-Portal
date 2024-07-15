@@ -1,19 +1,13 @@
-import os
-
-import ntsecuritycon
-import win32api
-import win32con
-import win32file
-import win32security
+import win32security, win32file, win32api, ntsecuritycon, win32con, os
 from win32security import (
     ACL_REVISION_DS,
     CONTAINER_INHERIT_ACE,
-    DACL_SECURITY_INFORMATION,
-    GROUP_SECURITY_INFORMATION,
     OBJECT_INHERIT_ACE,
-    OWNER_SECURITY_INFORMATION,
     PROTECTED_DACL_SECURITY_INFORMATION,
+    DACL_SECURITY_INFORMATION,
     SACL_SECURITY_INFORMATION,
+    OWNER_SECURITY_INFORMATION,
+    GROUP_SECURITY_INFORMATION,
     SE_FILE_OBJECT,
 )
 

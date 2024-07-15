@@ -1,16 +1,9 @@
 # Demonstrates using a taskbar icon to create and navigate between desktops
 
-import _thread
-import io
-import time
-import traceback
-
+import win32api, win32con, win32gui, win32service, win32process
 import pywintypes
-import win32api
-import win32con
-import win32gui
-import win32process
-import win32service
+import traceback, _thread, time
+import io
 
 ## "Shell_TrayWnd" is class of system tray window, broadcasts "TaskbarCreated" when initialized
 

@@ -4,11 +4,9 @@ The format of the ColInfo stream is apparently undocumented, but
 it can be read raw from one folder and copied to another's view state.
 """
 
-import os
-import sys
-
-import pythoncom
 from win32com.shell import shell, shellcon
+import pythoncom
+import os, sys
 
 template_folder = os.path.split(sys.executable)[0]
 print("Template folder:", template_folder)

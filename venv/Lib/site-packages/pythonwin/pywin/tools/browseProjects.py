@@ -1,17 +1,12 @@
-import glob
-import os
-import pyclbr
-
-import afxres
-import commctrl
-import pywin.framework.scriptutils
-import regutil
-import win32api
-import win32con
-import win32ui
-from pywin.mfc import dialog
-
+import regutil, os
 from . import hierlist
+import win32con, win32ui, win32api
+import commctrl
+from pywin.mfc import dialog
+import glob
+import pyclbr
+import pywin.framework.scriptutils
+import afxres
 
 
 class HLIErrorItem(hierlist.HierListItem):

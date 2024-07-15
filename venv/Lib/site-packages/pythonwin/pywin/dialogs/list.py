@@ -1,8 +1,5 @@
-import commctrl
-import win32api
-import win32con
-import win32ui
 from pywin.mfc import dialog
+import win32ui, win32con, commctrl, win32api
 
 
 class ListDialog(dialog.Dialog):

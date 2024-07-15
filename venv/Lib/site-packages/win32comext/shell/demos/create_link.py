@@ -1,10 +1,8 @@
 # link.py
 # From a demo by Mark Hammond, corrupted by Mike Fletcher
 # (and re-corrupted by Mark Hammond :-)
-import os
-
-import pythoncom
 from win32com.shell import shell
+import pythoncom, os
 
 
 class PyShortcut:

@@ -6,10 +6,9 @@
 # This module must be specified on the commandline to PythonWin only.
 # eg, PythonWin /app dlgappdemo.py
 
-import sys
-
+from pywin.framework import dlgappcore, app
 import win32ui
-from pywin.framework import app, dlgappcore
+import sys
 
 
 class TestDialogApp(dlgappcore.DialogApp):

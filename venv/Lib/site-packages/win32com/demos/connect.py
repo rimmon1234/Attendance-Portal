@@ -6,10 +6,10 @@
 # is cheated on - so this is still working as a fully-fledged server.
 
 import pythoncom
-import win32com.server.connect
 import win32com.server.util
-from pywin32_testutil import str2bytes
+import win32com.server.connect
 from win32com.server.exception import Exception
+from pywin32_testutil import str2bytes
 
 # This is the IID of the Events interface both Client and Server support.
 IID_IConnectDemoEvents = pythoncom.MakeIID("{A4988850-49C3-11d0-AE5D-52342E000000}")
@@ -24,7 +24,6 @@ class ConnectableServer(win32com.server.connect.ConnectableServer):
         "DoIt"
     ] + win32com.server.connect.ConnectableServer._public_methods_
     _connect_interfaces_ = [IID_IConnectDemoEvents]
-
     # The single public method that the client can call on us
     # (ie, as a normal COM server, this exposes just this single method.
     def DoIt(self, arg):
@@ -76,8 +75,7 @@ def CheckEvent(server, client, val, verbose):
 # In the real world, it is likely that the code controlling the server
 # will be in the same class as that getting the notifications.
 def test(verbose=0):
-    import win32com.client.connect
-    import win32com.client.dynamic
+    import win32com.client.dynamic, win32com.client.connect
     import win32com.server.policy
 
     server = win32com.client.dynamic.Dispatch(

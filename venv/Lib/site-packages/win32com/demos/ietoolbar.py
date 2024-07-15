@@ -16,16 +16,17 @@ to catch WM_COMMAND messages.
 """
 
 # imports section
-import sys
+import sys, os
+from win32com import universal
+from win32com.client import gencache, DispatchWithEvents, Dispatch
+from win32com.client import constants, getevents
+import win32com
+import pythoncom
 import winreg
 
-import pythoncom
-import win32com
-from win32com import universal
-from win32com.axcontrol import axcontrol
-from win32com.client import Dispatch, DispatchWithEvents, constants, gencache, getevents
 from win32com.shell import shell
 from win32com.shell.shellcon import *
+from win32com.axcontrol import axcontrol
 
 try:
     # try to get styles (winxp)
@@ -33,13 +34,11 @@ try:
 except:
     # import default module (win2k and lower)
     import win32gui
-
-import array
-import struct
-
-import commctrl
-import win32con
 import win32ui
+import win32con
+import commctrl
+
+import array, struct
 
 # ensure we know the ms internet controls typelib so we have access to IWebBrowser2 later on
 win32com.client.gencache.EnsureModule("{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}", 0, 1, 1)

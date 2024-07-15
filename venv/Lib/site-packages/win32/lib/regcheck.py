@@ -8,12 +8,11 @@ warnings.warn(
     category=PendingDeprecationWarning,
 )
 
-import os
-import sys
-
+import win32con
 import regutil
 import win32api
-import win32con
+import os
+import sys
 
 
 def CheckRegisteredExe(exename):

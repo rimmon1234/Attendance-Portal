@@ -2,13 +2,12 @@
 #
 # base classes for dialog based apps.
 
-
-import win32api
-import win32con
-import win32ui
-from pywin.mfc import dialog
-
 from . import app
+import win32ui
+import win32con
+import win32api
+import sys
+from pywin.mfc import dialog
 
 error = "Dialog Application Error"
 

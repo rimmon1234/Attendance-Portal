@@ -8,9 +8,8 @@
 # Keep this as short as possible, cos error output is only redirected if
 # this runs OK.  Errors in imported modules are much better - the messages go somewhere (not any more :-)
 
-import os
 import sys
-
+import os
 import win32api
 import win32ui
 
@@ -40,8 +39,7 @@ if not sys.argv:
 # we update the pywin path to ensure it is absolute.
 # If it is indeed relative, it will be relative to our current directory.
 # If its already absolute, then this will have no affect.
-import pywin
-import pywin.framework
+import pywin, pywin.framework
 
 pywin.__path__[0] = win32ui.FullPath(pywin.__path__[0])
 pywin.framework.__path__[0] = win32ui.FullPath(pywin.framework.__path__[0])

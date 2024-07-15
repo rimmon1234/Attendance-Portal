@@ -60,8 +60,7 @@ def macro_call(macro_name, args, kwargs):
         elif (
             macro_name == "find_temp_test_path"
         ):  # helper function for testing ado operation -- undocumented
-            import os
-            import tempfile
+            import tempfile, os
 
             return new_key, os.path.join(
                 tempfile.gettempdir(), "adodbapi_test", args[1]

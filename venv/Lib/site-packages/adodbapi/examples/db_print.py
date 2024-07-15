@@ -1,7 +1,6 @@
 """ db_print.py -- a simple demo for ADO database reads."""
 
 import sys
-
 import adodbapi.ado_consts as adc
 
 cmd_args = ("filename", "table_name")
@@ -38,6 +37,7 @@ if kw_args["table_name"] == "?":
 else:
     # make a cursor on the connection
     with con.cursor() as c:
+
         # run an SQL statement on the cursor
         sql = "select * from %s" % kw_args["table_name"]
         print('performing query="%s"' % sql)

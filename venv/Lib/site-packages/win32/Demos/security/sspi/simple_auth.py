@@ -3,9 +3,7 @@
 # be on different machines (here they are in the same process, but the same
 # concepts apply)
 import sspi
-import sspicon
-import win32api
-import win32security
+import win32security, sspicon, win32api
 
 
 def lookup_ret_code(err):

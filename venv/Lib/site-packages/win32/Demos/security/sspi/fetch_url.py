@@ -7,14 +7,15 @@ is used.  This script does follow simple 302 redirections, so pointing at the
 root of an IIS server is should work.
 """
 
-import http.client  # sorry, this demo needs 2.3+
-import optparse
-import urllib.error
+import sys
+import urllib.request, urllib.parse, urllib.error
+import http.client
 import urllib.parse
-import urllib.request
-from base64 import decodestring, encodestring
+from base64 import encodestring, decodestring
 
 from sspi import ClientAuth
+
+import optparse  # sorry, this demo needs 2.3+
 
 options = None  # set to optparse options object
 

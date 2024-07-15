@@ -21,13 +21,11 @@ this is a pain in the but!
 
 """
 
-import threading
-import unittest
-
-import pythoncom
-import win32api
+import threading, traceback
 import win32com.client
-import win32event
+import win32event, win32api
+import pythoncom
+import unittest
 
 from .testServers import InterpCase
 

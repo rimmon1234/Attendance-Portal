@@ -16,12 +16,9 @@
 # Database=??
 
 
-import os
-import sys
-import traceback
+import win32ui, win32api, win32con, os, string, sys
 
-import win32api
-import win32ui
+import traceback
 
 g_iniName = "Mssccprj.scc"  # Use the same INI name as VB!
 
@@ -68,8 +65,7 @@ def CheckoutFile(fileName):
     # and that the INI file can be found in that path
     # (or a parent path if a ni style package)
     try:
-        import win32com.client
-        import win32com.client.gencache
+        import win32com.client, win32com.client.gencache
 
         mod = win32com.client.gencache.EnsureModule(
             "{783CD4E0-9D54-11CF-B8EE-00608CC9A71F}", 0, 5, 0

@@ -5,14 +5,10 @@
 #
 # The .py files behind the OCXs will be automatically generated and imported.
 
-import glob
-import os
-
-import win32api
+from pywin.mfc import dialog, window, activex
+import win32ui, win32uiole
 import win32con
-import win32ui
-import win32uiole
-from pywin.mfc import activex, dialog, window
+import os, sys, win32api, glob
 from win32com.client import gencache
 
 
